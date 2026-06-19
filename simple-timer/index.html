@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-center">
+      <div class="timer-card" role="application" aria-label="Focus timer">
+        <div class="presets" role="group" aria-label="Duration presets">
+          <button class="preset" type="button" data-minutes="1" aria-pressed="false">1 min</button>
+          <button class="preset" type="button" data-minutes="5" aria-pressed="false">5 min</button>
+          <button class="preset" type="button" data-minutes="10" aria-pressed="false">10 min</button>
+          <button class="preset" type="button" data-minutes="25" aria-pressed="false">25 min</button>
+        </div>
+
+        <div class="display-zone">
+          <div class="countdown" aria-live="polite">05:00</div>
+          <p class="idle-hint">Tap a preset or press Let's go</p>
+          <div class="completion" aria-live="polite" aria-hidden="true">Time's up!</div>
+        </div>
+
+        <div class="controls">
+          <button class="btn-primary" type="button">Let's go</button>
+          <button class="btn-secondary btn-pause" type="button" hidden>Pause for now</button>
+          <button class="btn-secondary btn-start-over" type="button">Start over</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

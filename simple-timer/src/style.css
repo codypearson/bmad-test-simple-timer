@@ -1,0 +1,184 @@
+/* Design tokens and component styles — Simple Timer */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --color-surface-base: #FBF9F4;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-muted: #F3EDE4;
+  --color-ink-primary: #2C2825;
+  --color-ink-secondary: #7A7268;
+  --color-ink-disabled: #B8B0A6;
+  --color-accent: #B8864E;
+  --color-accent-text: #8A6530;
+  --color-accent-hover: #A67540;
+  --color-accent-subtle: #EDE4D8;
+  --color-border-hairline: #E8E2D9;
+  --color-focus-ring: #B8864E;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+  --spacing-gutter: 24px;
+  --spacing-card-padding: 48px;
+
+  /* Border radius */
+  --rounded-sm: 8px;
+  --rounded-md: 12px;
+  --rounded-lg: 20px;
+  --rounded-full: 9999px;
+
+  /* Typography */
+  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-size-display: clamp(4rem, 8vw, 6rem);
+  --font-size-display-meta: 20px;
+  --font-size-label: 15px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-ink-primary);
+  background: var(--color-surface-base);
+}
+
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8) var(--spacing-gutter);
+}
+
+.timer-card {
+  width: 100%;
+  max-width: 480px;
+  padding: var(--spacing-card-padding);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--rounded-lg);
+}
+
+.presets {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.preset {
+  flex: 1;
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--spacing-3) var(--spacing-5);
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-ink-primary);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+}
+
+.preset.selected {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+}
+
+.preset.disabled {
+  color: var(--color-ink-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.display-zone {
+  margin: var(--spacing-7) 0;
+  text-align: center;
+}
+
+.countdown {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink-primary);
+}
+
+.completion {
+  margin-top: var(--spacing-4);
+  min-height: 28px;
+  font-family: var(--font-display);
+  font-size: var(--font-size-display-meta);
+  color: var(--color-accent-text);
+  visibility: hidden;
+}
+
+.idle-hint {
+  margin-top: var(--spacing-2);
+  font-size: 13px;
+  color: var(--color-ink-secondary);
+  text-align: center;
+}
+
+.idle-hint.hidden {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+  background: var(--color-accent);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-secondary {
+  color: var(--color-ink-primary);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-hairline);
+}
+
+.btn-secondary:hover {
+  background: var(--color-surface-muted);
+}
+
+.preset:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
